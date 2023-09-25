@@ -66,7 +66,7 @@
     $(document).ready(function(){
         const formsDiv = $('#forms');
         function formatPDFLink(pdfFileName) {
-            return 'https://www.sejda.com/pdf-editor?files=' + encodeURIComponent('[{"downloadUrl":"https://san-diego-girl-scout-troop-4423.github.io/forms/' + pdfFileName + '"}]') + '&returnEmail=' + encodeURIComponent('jessica.voytek@gmail.com');
+            return 'https://www.sejda.com/sign-pdf?files=' + encodeURIComponent('[{"downloadUrl":"https://san-diego-girl-scout-troop-4423.github.io/forms/' + pdfFileName + '"}]') + '&returnEmail=' + encodeURIComponent('jessica.voytek@gmail.com');
             // return 'https://www.sejda.com/sign-pdf?files=%5B%7B%22downloadUrl%22%3A%22https%3A%2F%2Fsan-diego-girl-scout-troop-4423.github.io%2Fforms%2' + encodeURIComponent(pdfFileName) + '%22%7D%5D&returnEmail=jessica.voytek%40gmail.com';
         }
 
