@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <script language="javascript">
+
+    const formPdfs = [
+        {
+            name : 'Special Events',
+            forms : [
+            {
+                'name' : 'Encampment 2023 Permission Form',
+                'pdf' : 'TR-2006W_Trip_or_Event_Permission-4423.pdf',
+                'fillable' : true,
+            },
+        ]},
+        {
+            name : 'For Girls',
+            forms : [
+            {
+                'name' : 'Girl Health History & Annual Permission',
+                'pdf' : 'TR-2005W_Girl_Health_History_and_Annual_Permission.pdf',
+                'fillable' : true,
+            },
+            {
+                'name' : 'Family Information Sheet',
+                'pdf' : 'TR-2026W_Family_Information_Sheet.pdf',
+                'fillable' : true,
+            },            {
+                'name' : 'covid Waiver',
+                'pdf' : 'TR_1853W_COVID_Girl_and_Adult_Participation_Guidance_and_Waiver.pdf',
+                'fillable' : true,
+            },            
+
+        ]},
+        {
+            name : 'For Adult Members',
+            forms : [
+            {
+                'name' : 'Adult Health History',
+                'pdf' : 'PGO-0063CW_Adult_Health_History.pdf',
+                'fillable' : true,
+            },
+        ]},
+        {
+            name : 'For Drivers',
+            forms : [
+            {
+                'name' : 'Message to Volunteer Drivers',
+                'pdf' : 'PG-0108W_Message_to_Volunteer_Drivers.pdf',
+                'fillable' : true,
+            },            
+            {
+                'name' : 'Emergency Cards Folded',
+                'pdf' : 'TR-2522W_6-Emergency_Cards_folded.pdf',
+                'fillable' : true,
+            },            
+        ]},        
+        
+    ];
+
+    $(document).ready(function(){
+        const formsDiv = $('#forms');
+        function formatPDFLink(pdfFileName) {
+            return 'https://www.sejda.com/pdf-editor?files=' + encodeURIComponent('[{"downloadUrl":"https://san-diego-girl-scout-troop-4423.github.io/forms/' + pdfFileName + '"}]') + '&returnEmail=' + encodeURIComponent('jessica.voytek@gmail.com');
+            // return 'https://www.sejda.com/sign-pdf?files=%5B%7B%22downloadUrl%22%3A%22https%3A%2F%2Fsan-diego-girl-scout-troop-4423.github.io%2Fforms%2' + encodeURIComponent(pdfFileName) + '%22%7D%5D&returnEmail=jessica.voytek%40gmail.com';
+        }
+
+        formPdfs.forEach(function (section) {
+            formsDiv.append('<h2 class="text-2xl font-bold">' + section.name + '</h2>');
+            section.forms.forEach(function (form) {
+                formsDiv.append('<p><a href="' + formatPDFLink(form.pdf) + '" target="_blank">' + form.name + '</a></p>');
+            });
+        });
+        
+    });
+    
+  </script>
+</head>
+<body>
+  <h1 class="text-3xl font-bold">
+    Forms for Girl Scout Troop 4423
+  </h1>
+  <div id="forms">
+  </div>
+</body>
+</html>
