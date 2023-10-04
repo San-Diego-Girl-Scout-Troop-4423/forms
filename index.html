@@ -10,15 +10,6 @@
 
     const formPdfs = [
         {
-            name : 'Special Events',
-            forms : [
-            {
-                'name' : 'Encampment 2023 Permission Form',
-                'pdf' : 'TR-2006W_Trip_or_Event_Permission-4423.pdf',
-                'fillable' : true,
-            },
-        ]},
-        {
             name : 'For Girls',
             forms : [
             {
@@ -31,7 +22,7 @@
                 'pdf' : 'TR-2026W_Family_Information_Sheet.pdf',
                 'fillable' : true,
             },            {
-                'name' : 'covid Waiver',
+                'name' : 'Covid Waiver',
                 'pdf' : 'TR_1853W_COVID_Girl_and_Adult_Participation_Guidance_and_Waiver.pdf',
                 'fillable' : true,
             },            
@@ -71,9 +62,9 @@
         }
 
         formPdfs.forEach(function (section) {
-            formsDiv.append('<h2 class="text-2xl font-bold">' + section.name + '</h2>');
+            formsDiv.append('<br /><h2 class="text-2xl font-bold">' + section.name + '</h2>');
             section.forms.forEach(function (form) {
-                formsDiv.append('<p><a href="' + formatPDFLink(form.pdf) + '" target="_blank">' + form.name + '</a></p>');
+                formsDiv.append('<p><a class="text-blue-600" href="' + formatPDFLink(form.pdf) + '" target="_blank">' + form.name + '</a></p>');
             });
         });
         
@@ -81,10 +72,11 @@
     
   </script>
 </head>
-<body>
+<body class="text-center">
   <h1 class="text-3xl font-bold">
     Forms for Girl Scout Troop 4423
   </h1>
+  <br />
   <div id="forms">
   </div>
 </body>
