@@ -47,8 +47,8 @@
             },            
             {
                 'name' : 'Emergency Cards Folded',
-                'pdf' : 'TR-2522W_6-Emergency_Cards_folded.pdf',
-                'fillable' : true,
+                'pdf' : 'TR-2522W_Emergency_Card_folded.pdf',
+                'fillable' : false,
             },            
         ]},   
         {
@@ -67,13 +67,18 @@
         const formsDiv = $('#forms');
         function formatPDFLink(pdfFileName) {
             return 'https://www.sejda.com/sign-pdf?files=' + encodeURIComponent('[{"downloadUrl":"https://san-diego-girl-scout-troop-4423.github.io/forms/' + pdfFileName + '"}]') + '&returnEmail=' + encodeURIComponent('jessica.voytek@gmail.com');
-            // return 'https://www.sejda.com/sign-pdf?files=%5B%7B%22downloadUrl%22%3A%22https%3A%2F%2Fsan-diego-girl-scout-troop-4423.github.io%2Fforms%2' + encodeURIComponent(pdfFileName) + '%22%7D%5D&returnEmail=jessica.voytek%40gmail.com';
         }
 
         formPdfs.forEach(function (section) {
             formsDiv.append('<br /><h2 class="text-2xl font-bold">' + section.name + '</h2>');
             section.forms.forEach(function (form) {
-                formsDiv.append('<p><a class="text-blue-600" href="' + formatPDFLink(form.pdf) + '" target="_blank">' + form.name + '</a></p>');
+                var paragraph = $('<p></p>');
+                paragraph.append(form.name + ' (');
+                if (form.fillable) {
+                    paragraph.append('<a class="text-blue-600" href="' + formatPDFLink(form.pdf) + '" target="_blank">Fillable Online</a> | ');
+                }
+                paragraph.append('<a class="text-blue-600" href="' + form.pdf + '" target="_blank">Download PDF</a>)');
+                formsDiv.append(paragraph);
             });
         });
         
